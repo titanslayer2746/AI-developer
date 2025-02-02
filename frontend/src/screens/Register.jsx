@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/user.context'
-import axios from '../config/axios'
+import axios from '../config/axios.js'
 
 const Register = () => {
 
@@ -22,8 +22,8 @@ const Register = () => {
             password
         }).then((res) => {
             console.log(res.data)
-            localStorage.setItem('token', res?.data.token)
-            setUser(res?.data.user)
+            localStorage.setItem('token', res.data.token)
+            setUser(res.data.user)
             navigate('/')
         }).catch((err) => {
             console.log(err.response.data)
@@ -51,7 +51,7 @@ const Register = () => {
                     <div className="mb-6">
                         <label className="block text-gray-400 mb-2" htmlFor="password">Password</label>
                         <input
-                            onChange={(e) => setPassword(e.target.value)} s
+                            onChange={(e) => setPassword(e.target.value)}
                             type="password"
                             id="password"
                             className="w-full p-3 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
